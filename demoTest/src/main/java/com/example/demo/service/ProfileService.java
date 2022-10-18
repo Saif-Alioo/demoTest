@@ -28,19 +28,19 @@ public class ProfileService {
     }
 	
 	
-//	 public void addProfile(int proid ,String name, MultipartFile file) throws IOException
-//	    {
-//		 
-//		    Profile profile=new Profile();
-//		    String fileName=file.getOriginalFilename();
-//		    if(fileName.contains("..")) {
-//		    	System.out.println("Not a valid File");
-//		    }
-//	    	profile.setProid(proid);
-//	    	profile.setName(name);
-//	    	profile.setImage(Base64.getEncoder().encodeToString(file.getBytes()));
-//	    	repository.save(profile);
-//	    }
+	 public void uploadProfile(int proid ,String name, MultipartFile file) throws IOException
+	    {
+		 
+		    Profile profile=new Profile();
+		    String fileName=file.getOriginalFilename();
+		    if(fileName.contains("..")) {
+		    	System.out.println("Not a valid File");
+		    }
+	    	profile.setProid(proid);
+	    	profile.setName(name);
+	    	profile.setImage(file.getBytes());
+	    	repository.save(profile);
+	    }
 	 
 
     //Get profile method.

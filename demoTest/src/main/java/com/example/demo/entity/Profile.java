@@ -27,8 +27,8 @@ public class Profile {
 	@Column
 	@NotBlank(message="Name is mandatory")
 	private String name;
-//	@Lob
-//	@Column
-//	private String image;
+	@Lob
+	@Column
+	private byte[] image;
 	
 }

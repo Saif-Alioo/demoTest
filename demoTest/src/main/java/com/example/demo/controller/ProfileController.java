@@ -46,20 +46,21 @@ public class ProfileController {
 	private ProfileService service;
 	
   //Add New Profile in to Database.
-	@PostMapping("/add")
-	public ResponseEntity<String> addProfile(@Valid @RequestBody  Profile profile)
-	{
-		
-	   service.addProfile(profile);
-	   log.info("New profile is added.");
-	   return ResponseEntity.ok("Profile is Added");
-	}
-	
-//	@PostMapping("/addPro")
-//	public String saveProfile(@RequestParam(required=true,name="proid") int proId,@RequestParam(name="name") String name,@RequestParam(required=true,value="file")MultipartFile file) throws IOException {
-//		service.addProfile(proId, name, file);
-//		return "Prolife added";
+//	@PostMapping("/add")
+//	public ResponseEntity<String> addProfile(@Valid @RequestBody  Profile profile)
+//	{
+//		
+//	   service.addProfile(profile);
+//	   log.info("New profile is added.");
+//	   return ResponseEntity.ok("Profile is Added");
 //	}
+	
+	
+	@PostMapping("/upload")
+	public String saveProfile(@RequestParam("file") MultipartFile file, @RequestParam String name, @RequestParam int proId) throws IOException {
+		service.uploadProfile(proId, name, file);
+		return "Prolife added";
+	}
 	
 	//Get The all the Profiles
 	@GetMapping("/profiles")
