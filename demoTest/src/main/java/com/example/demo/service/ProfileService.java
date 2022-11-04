@@ -61,9 +61,10 @@ public class ProfileService {
    }
    
  //Update the profile.
-   public Profile updateProfile(int id ,Profile profile) throws customException {
+   public Profile updateProfile(int id ,MultipartFile file,Profile profile) throws customException {
 	   Profile updateProfile=repository.findById(id).orElseThrow(()->new customException("Profile not found"));
 	   updateProfile.setName(profile.getName());
+	   updateProfile.setImage(profile.getImage());
 	   return repository.save(updateProfile);
    }
    

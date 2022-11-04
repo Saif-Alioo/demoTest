@@ -45,20 +45,12 @@ public class ProfileController {
 	@Autowired
 	private ProfileService service;
 	
-  //Add New Profile in to Database.
-//	@PostMapping("/add")
-//	public ResponseEntity<String> addProfile(@Valid @RequestBody  Profile profile)
-//	{
-//		
-//	   service.addProfile(profile);
-//	   log.info("New profile is added.");
-//	   return ResponseEntity.ok("Profile is Added");
-//	}
 	
-	
+	//Add the profile...
 	@PostMapping("/upload")
 	public String saveProfile(@RequestParam("file") MultipartFile file, @RequestParam String name, @RequestParam int proId) throws IOException {
 		service.uploadProfile(proId, name, file);
+		log.info("Profile is Uploded...");
 		return "Prolife added";
 	}
 	
@@ -80,9 +72,9 @@ public class ProfileController {
 	//Update the Profile name by using profile Id.
     @PutMapping("/update/{id}")
     
-	public Profile updateProfile(@PathVariable ("id")int id , @RequestBody Profile profile) throws customException {
+	public Profile updateProfile(@PathVariable ("id")int id ,MultipartFile file, @RequestBody Profile profile) throws customException {
     	log.info("Update Profile by using Id...");
-		return service.updateProfile(id,profile);
+		return service.updateProfile(id,file,profile);
 		
 	}
 	
