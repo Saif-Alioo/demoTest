@@ -22,11 +22,6 @@ public class ProfileService {
 	private ProfileRepo repository;
 	
 	//Add Profile method.
-//	public Profile addProfile(Profile profile)
-//    {
-//    	return repository.save(profile);
-//    }
-//	
 	
 	 public void uploadProfile(int proid ,String name, MultipartFile file) throws IOException
 	    {

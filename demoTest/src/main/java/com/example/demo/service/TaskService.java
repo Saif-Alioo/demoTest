@@ -17,7 +17,7 @@ public class TaskService {
 	@Autowired
 	private TaskRepo repository;
 	
-//Get all tasks
+    //Get all tasks
     public List<Task> getTasks(){
    	 return repository.findAll();
     }
